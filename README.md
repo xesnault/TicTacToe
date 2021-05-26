@@ -15,7 +15,7 @@ You can play against another human on the same computer, against a random AI or 
 ./TicTacToe.exe -p1 [human|random|minimax] -p2 [human|random|minimax]
 ```
 
-If you omit the `-p1` or `p2` argument, the default is `human`.
+If you omit the `-p1` or `-p2` argument, the default is `human`.
 
 ## Source code
 
