@@ -1,5 +1,3 @@
-#include <cstring>
-
 #include "Args.hpp"
 #include "TicTacToe.hpp"
 #include "HumanPlayer.hpp"

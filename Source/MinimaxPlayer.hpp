@@ -1,7 +1,5 @@
 #pragma once
 
-#include <iostream>
-
 #include "AbstractPlayer.hpp"
 
 class MinimaxPlayer : public AbstractPlayer
