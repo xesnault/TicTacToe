@@ -14,8 +14,15 @@ You can play against another human on the same computer, against a random AI or 
 ```
 ./TicTacToe.exe -p1 [human|random|minimax] -p2 [human|random|minimax]
 ```
+If you omit the `-p1` or `-p2` argument, the default is `human`.  
+  
+If you want to play against a friend, use the first player has to use the `-host` parameter and the second the `-join`
+with the IP of the first.
 
-If you omit the `-p1` or `-p2` argument, the default is `human`.
+```
+./TicTacToe.exe -host
+./TicTacToe.exe -join [ip]
+```
 
 ## Source code
 

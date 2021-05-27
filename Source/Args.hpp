@@ -24,7 +24,7 @@ class Args
 	{
 		for (int i = 0; i < argCount; ++i)
 		{
-			if (std::strcmp(args[i], key.c_str()) == 0 && i < argCount + 1)
+			if (std::strcmp(args[i], key.c_str()) == 0 && i < argCount + 1 && args[i + 1][0] != '-')
 				return args[i + 1];
 		}
 		return "";

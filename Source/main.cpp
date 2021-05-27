@@ -5,6 +5,10 @@
 #include "HumanPlayer.hpp"
 #include "RandomPlayer.hpp"
 #include "MinimaxPlayer.hpp"
+#include "RemotePlayer.hpp"
+#include "LocalPlayer.hpp"
+
+#define DEFAULT_PORT 8888
 
 AbstractPlayer* NewPlayer(const std::string& playerType)
 {
@@ -30,8 +34,30 @@ int main(int argc, char** argv)
 
 		TicTacToe game;
 
-		AbstractPlayer* player1 = NewPlayer(args.ValueOf("-p1"));
-		AbstractPlayer* player2 = NewPlayer(args.ValueOf("-p2"));
+		AbstractPlayer* player1;
+		AbstractPlayer* player2;
+
+		if (args.Has("-host"))
+		{
+			SocketServer server(DEFAULT_PORT);
+			SocketClient client = server.Listen();
+
+			player1 = new LocalPlayer(client);
+			player2 = new RemotePlayer(client);
+		}
+		else if (args.Has("-join"))
+		{
+			SocketClient client;
+			client.Connect(args.ValueOf("-join"), DEFAULT_PORT);
+
+			player1 = new RemotePlayer(client);
+			player2 = new LocalPlayer(client);
+		}
+		else
+		{
+			player1 = NewPlayer(args.ValueOf("-p1"));
+			player2 = NewPlayer(args.ValueOf("-p2"));
+		}
 
 		game.Play(*player1, *player2);
 
