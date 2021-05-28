@@ -2,6 +2,11 @@
 
 This is a console based Tic Tac Toe game.
 
+## Features
+
+- Play against an AI: **random** or **minimax**
+- Play against a friend using P2P
+
 ## How to play
 
 The game starts directly when you launch the executable, as a human you can provide an input between [1; 9].
@@ -24,6 +29,7 @@ with the IP of the first.
 ./TicTacToe.exe -join [ip]
 ```
 
-## Source code
+## Purposes & Source code
 
-I tried to make the source code easily understandable if someone wants to learn from it, it's a pretty simple project.
+I tried to make the source code easily understandable if someone wants to learn from it, it's a pretty simple project. It uses polymorphism and is easily extendable.  
+It uses no external library, and basic sockets for the P2P part.
